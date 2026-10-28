@@ -15,23 +15,23 @@
             color: #d1d5db;
         }
 
-        /* 판타지 헤더 전용 폰트 */
         .font-fantasy {
             font-family: 'Cinzel', serif;
         }
 
-        /* 판타지 프레임 & 테두리 스타일링 */
-        .fantasy-border {
-            border: 1px solid #3b3327;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(180, 140, 75, 0.1);
-            position: relative;
+        /* 깔끔한 커스텀 스크롤바 (시야 방해 최소화) */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
         }
-        .fantasy-border::before {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            pointer-events: none;
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(12, 13, 18, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3b3327;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
         }
 
         /* 골드 하이라이트 글자 */
@@ -41,7 +41,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 게임 게이트 애니메이션 */
+        /* 게이트 아우라 효과 */
         @keyframes runeRotate {
             0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
             50% { transform: rotate(180deg) scale(1.08); opacity: 0.6; }
@@ -56,13 +56,12 @@
 
     <!-- ==================== FANTASY GAME INTRO GATE ==================== -->
     <div id="fantasy-gate" class="fixed inset-0 z-50 bg-[#07080b] flex flex-col items-center justify-center p-6 transition-all duration-1000">
-        <!-- Magic Rune Background Circle -->
         <div class="absolute w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] border border-amber-600/30 rounded-full rune-circle pointer-events-none flex items-center justify-center">
             <div class="w-[80%] h-[80%] border border-amber-500/20 rounded-full border-dashed"></div>
         </div>
 
         <div class="relative z-10 text-center max-w-lg space-y-6">
-            <div class="inline-block px-4 py-1 text-[11px] font-bold tracking-[0.2em] text-amber-400/90 uppercase bg-amber-950/40 border border-amber-700/50 rounded-xs font-fantasy">
+            <div class="inline-block px-4 py-1 text-[11px] font-bold tracking-[0.2em] text-amber-400/90 uppercase bg-amber-950/40 border border-amber-700/50 font-fantasy">
                 ARCHIVES OF GAME DESIGN
             </div>
 
@@ -75,7 +74,6 @@
                 </p>
             </div>
 
-            <!-- Start Game / Enter Gate Button -->
             <div class="pt-6">
                 <button onclick="enterWorld()" class="group relative inline-flex items-center justify-center px-8 py-3.5 font-bold text-amber-100 bg-[#1a1610] hover:bg-[#282117] border border-amber-600/60 hover:border-amber-400 transition-all duration-300 shadow-lg shadow-black">
                     <span class="flex items-center gap-3 text-sm sm:text-base tracking-widest">
@@ -95,7 +93,7 @@
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
 
         <!-- Header Navigation -->
-        <header class="sticky top-0 z-40 bg-[#0c0d12]/90 border-b border-amber-900/40 backdrop-blur-md">
+        <header class="sticky top-0 z-40 bg-[#0c0d12]/90 border-b border-amber-900/30 backdrop-blur-md">
             <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
                 <a href="#" class="font-bold text-lg text-amber-200/90 hover:text-amber-400 transition-colors font-fantasy tracking-wider">
                     PARK CHEOL WOO
@@ -154,13 +152,13 @@
 
                 <!-- 기획 세부 영역 어필 카드 -->
                 <div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-[#121118] fantasy-border space-y-1">
+                    <div class="p-4 bg-[#111218] border border-amber-900/30 space-y-1">
                         <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
                             <span>📜</span> 시스템 &amp; 밸런스 기획
                         </h3>
                         <p class="text-xs text-slate-300 leading-relaxed">스킬/전투 메카닉, UI/HUD 가시성 기획, 수치 데이터베이스(DB) 테이블 구조화</p>
                     </div>
-                    <div class="p-4 bg-[#121118] fantasy-border space-y-1">
+                    <div class="p-4 bg-[#111218] border border-amber-900/30 space-y-1">
                         <h3 class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
                             <span>🗺️</span> 콘텐츠 &amp; 레벨 디자인
                         </h3>
@@ -171,14 +169,14 @@
 
             <!-- Projects Section -->
             <section id="projects" class="space-y-8">
-                <div class="border-b border-amber-900/40 pb-3">
+                <div class="border-b border-amber-900/30 pb-3">
                     <h2 class="text-2xl font-bold tracking-tight text-slate-100 font-fantasy">Featured Projects</h2>
                     <p class="text-slate-400 text-xs sm:text-sm mt-1">프로젝트 카드를 클릭하면 상세 기획서와 갤러리를 확인할 수 있습니다.</p>
                 </div>
 
                 <div class="grid gap-6">
                     <!-- Project 1 Card -->
-                    <div onclick="openModal('modal-slime')" class="cursor-pointer group p-6 bg-[#111218] fantasy-border hover:border-amber-500/70 transition-all duration-300 space-y-4">
+                    <div onclick="openModal('modal-slime')" class="cursor-pointer group p-6 bg-[#111218] border border-amber-900/30 hover:border-amber-500/60 transition-all duration-300 space-y-4">
                         <div class="flex justify-between items-start">
                             <div>
                                 <div class="flex gap-2 mb-1.5">
@@ -206,7 +204,7 @@
                     </div>
 
                     <!-- Project 2 Card -->
-                    <div onclick="openModal('modal-wings')" class="cursor-pointer group p-6 bg-[#111218] fantasy-border hover:border-amber-500/70 transition-all duration-300 space-y-4">
+                    <div onclick="openModal('modal-wings')" class="cursor-pointer group p-6 bg-[#111218] border border-amber-900/30 hover:border-amber-500/60 transition-all duration-300 space-y-4">
                         <div class="flex gap-2 mb-1.5">
                             <span class="text-[10px] font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 border border-amber-800/60">전투/스킬 밸런스</span>
                             <span class="text-[10px] font-bold text-amber-300 bg-amber-900/60 px-2 py-0.5 border border-amber-700/60">조작감 설계</span>
@@ -227,7 +225,7 @@
                     </div>
 
                     <!-- Project 3 Card -->
-                    <div onclick="openModal('modal-rex')" class="cursor-pointer group p-6 bg-[#111218] fantasy-border hover:border-amber-500/70 transition-all duration-300 space-y-4">
+                    <div onclick="openModal('modal-rex')" class="cursor-pointer group p-6 bg-[#111218] border border-amber-900/30 hover:border-amber-500/60 transition-all duration-300 space-y-4">
                         <div class="flex gap-2 mb-1.5">
                             <span class="text-[10px] font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 border border-indigo-800/60">내러티브 기획</span>
                             <span class="text-[10px] font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 border border-amber-800/60">턴제 전투 시스템</span>
@@ -251,7 +249,7 @@
 
             <!-- Experience Section -->
             <section id="experience" class="space-y-8">
-                <div class="border-b border-amber-900/40 pb-3">
+                <div class="border-b border-amber-900/30 pb-3">
                     <h2 class="text-2xl font-bold tracking-tight text-slate-100 font-fantasy">Experience &amp; Leadership</h2>
                     <p class="text-slate-400 text-xs sm:text-sm mt-1">학과 행사 총괄, 전시 기획 및 예산 집행 경험입니다.</p>
                 </div>
@@ -303,11 +301,11 @@
 
             <!-- Education Section -->
             <section id="education" class="space-y-8">
-                <div class="border-b border-amber-900/40 pb-3">
+                <div class="border-b border-amber-900/30 pb-3">
                     <h2 class="text-2xl font-bold tracking-tight text-slate-100 font-fantasy">Education &amp; Activities</h2>
                 </div>
 
-                <div class="p-6 bg-[#111218] fantasy-border space-y-4">
+                <div class="p-6 bg-[#111218] border border-amber-900/30 space-y-4">
                     <div class="flex flex-wrap justify-between items-baseline">
                         <h3 class="text-lg font-bold text-slate-100">순천향대학교</h3>
                         <span class="text-xs text-slate-500 font-mono">2023.03 - 2028.02 (졸업예정)</span>
@@ -339,190 +337,218 @@
 
     </div>
 
-    <!-- ==================== MODALS (상세 레이어 팝업) ==================== -->
+    <!-- ==================== MODALS (개선된 깔끔한 레이어 팝업) ==================== -->
 
     <!-- Modal 1: The Slime -->
-    <div id="modal-slime" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-[#11121a] fantasy-border max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 space-y-6 relative shadow-2xl">
-            <button onclick="closeModal('modal-slime')" class="absolute top-4 right-4 text-amber-400/80 hover:text-amber-200 text-xl font-bold px-2 py-1">✕</button>
+    <div id="modal-slime" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-[#101118] border border-amber-800/40 w-full max-w-3xl max-h-[92vh] overflow-y-auto custom-scrollbar p-5 sm:p-8 space-y-8 relative shadow-2xl">
+            <button onclick="closeModal('modal-slime')" class="absolute top-4 right-4 text-slate-400 hover:text-amber-300 text-2xl font-bold z-10">✕</button>
             
+            <!-- 1. 프로젝트 타이틀 -->
             <div>
-                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-fantasy">Project Details</span>
-                <h2 class="text-2xl font-bold text-slate-100 mt-1">The Slime : KOREA chapter</h2>
+                <span class="text-[11px] font-bold text-amber-400 uppercase tracking-widest font-fantasy">Project Details</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">The Slime : KOREA chapter</h2>
                 <p class="text-xs text-emerald-400 mt-1">🏆 2026 순천향대학교 하계 게임발표회 3위 입상작</p>
             </div>
 
-            <!-- Screenshot Gallery Placeholder -->
+            <!-- 2. 상단 풀사이즈 메인 비주얼 (메인메뉴 / 썸네일) -->
             <div class="space-y-2">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-fantasy">Screenshots &amp; Visuals</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <img src="더슬라임메인메뉴.png" alt="The Slime 메인메뉴" class="rounded-xs w-full aspect-video object-cover border border-amber-900/40">
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 메인 인게임 플레이 화면<br><span class="text-[10px] text-slate-600">(images/slime1.png 권장)</span></span>
-                    </div>
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 한국 신화 보스 전투 장면<br><span class="text-[10px] text-slate-600">(images/slime2.png 권장)</span></span>
-                    </div>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-fantasy">Main Menu &amp; Title Concept</span>
+                <div class="w-full aspect-video bg-[#181a24] overflow-hidden border border-amber-900/30">
+                    <img src="더슬라임메인메뉴.png" alt="The Slime 메인메뉴" class="w-full h-full object-cover">
                 </div>
             </div>
 
-            <!-- Detailed Game Design Sections -->
-            <div class="space-y-4 text-xs sm:text-sm text-slate-300 border-t border-amber-900/30 pt-4">
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">🎯 핵심 기획 의도 (Design Intent)</h4>
-                    <p class="leading-relaxed text-slate-300">
+            <!-- 3. 본문 내용 + 각 항목별 관련 스크린샷 매칭 -->
+            <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
+                
+                <!-- Section A: 핵심 기획 의도 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         기존 서구권 중심의 아포칼립스/로그라이크 세계관에서 벗어나, 한국 설화와 신화를 기계 오염이라는 현대적 스팀펑크 메카닉으로 재해석하고자 했습니다. 피지컬 조작감과 함께 정화 메카닉을 통한 전략적 선택지를 부여하는 것에 집중했습니다.
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">⚙️ 주요 시스템 &amp; 메카닉 (Core Mechanics)</h4>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
+                <!-- Section B: 주요 시스템 & 메카닉 + 관련 이미지 매칭 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>정화 및 흡수 시스템:</strong> 오염된 보스 기체를 정화할 때마다 고유 신화 능력을 흡수하여 조합하는 빌드트리 설계</li>
                         <li><strong>2.5D 피지컬 조작:</strong> 픽셀 도트 그래픽에 깊이감(Depth)을 더한 종스크롤/횡스크롤 탄막 파훼 이동 시스템</li>
                         <li><strong>한국적 설화 기믹:</strong> 도깨비불, 삼태극 문양, 칠성신 등 전통 요소를 기계 장치 패턴과 연결한 레벨 디자인</li>
                     </ul>
+
+                    <!-- 관련 시스템/전투 이미지 -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 pl-6">
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 메인 인게임 플레이 화면<br><span class="text-[10px] text-slate-600">(images/slime1.png)</span></span>
+                        </div>
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 한국 신화 보스 전투 장면<br><span class="text-[10px] text-slate-600">(images/slime2.png)</span></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">👤 담당 역할 및 기여도 (My Role)</h4>
-                    <p class="leading-relaxed text-slate-300">
+                <!-- Section C: 담당 역할 및 기여도 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (기획 100%, 아트/프로그래밍 100%)</strong>: 전반적인 세계관 시나리오 작성, 전투 시스템 수치 밸런싱 설계, 유니티 C# 스크립팅 및 2.5D 픽셀 아트 리소스 구현.
                     </p>
                 </div>
             </div>
 
-            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
-            <div class="pt-4 border-t border-amber-900/30 flex justify-between items-center">
+            <!-- 하단 기획서 다운로드 & 닫기 -->
+            <div class="pt-6 border-t border-amber-900/30 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-amber-400 hover:underline flex items-center gap-1 font-semibold">
                     📄 시스템 &amp; 레벨 기획서 (PDF/Notion) 열기 →
                 </a>
-                <button onclick="closeModal('modal-slime')" class="px-4 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
+                <button onclick="closeModal('modal-slime')" class="px-5 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
             </div>
         </div>
     </div>
 
     <!-- Modal 2: Wings Online -->
-    <div id="modal-wings" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-[#11121a] fantasy-border max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 space-y-6 relative shadow-2xl">
-            <button onclick="closeModal('modal-wings')" class="absolute top-4 right-4 text-amber-400/80 hover:text-amber-200 text-xl font-bold px-2 py-1">✕</button>
+    <div id="modal-wings" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-[#101118] border border-amber-800/40 w-full max-w-3xl max-h-[92vh] overflow-y-auto custom-scrollbar p-5 sm:p-8 space-y-8 relative shadow-2xl">
+            <button onclick="closeModal('modal-wings')" class="absolute top-4 right-4 text-slate-400 hover:text-amber-300 text-2xl font-bold z-10">✕</button>
             
             <div>
                 <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-fantasy">Project Details</span>
-                <h2 class="text-2xl font-bold text-slate-100 mt-1">Wings Online</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">Wings Online</h2>
             </div>
 
-            <!-- Screenshot Gallery Placeholder -->
             <div class="space-y-2">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-fantasy">Screenshots &amp; Visuals</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 탄막 파훼 &amp; 보스전 화면<br><span class="text-[10px] text-slate-600">(images/wings1.png 권장)</span></span>
-                    </div>
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 성장 및 스킬 조합 UI<br><span class="text-[10px] text-slate-600">(images/wings2.png 권장)</span></span>
-                    </div>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-fantasy">Main Concept Visual</span>
+                <div class="w-full aspect-video bg-[#181a24] flex items-center justify-center text-slate-500 text-xs border border-amber-900/30">
+                    <span>📷 Wings Online 대표 메인 화면 (images/wings_main.png)</span>
                 </div>
             </div>
 
-            <!-- Detailed Game Design Sections -->
-            <div class="space-y-4 text-xs sm:text-sm text-slate-300 border-t border-amber-900/30 pt-4">
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">🎯 핵심 기획 의도 (Design Intent)</h4>
-                    <p class="leading-relaxed text-slate-300">
+            <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         바쁜 일상 중 복잡한 매커니즘 없이 즉각적인 재미를 줄 수 있는 '킬링타임 액션 로그라이크'를 지향했습니다. 진입 장벽은 낮추되, 보스전 탄막 패턴 파훼를 통해 소소하지만 명확한 클리어 쾌감을 전달하고자 했습니다.
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">⚙️ 주요 시스템 &amp; 메카닉 (Core Mechanics)</h4>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>직관적 조작 체계:</strong> 상하좌우 4방향 이동, 평타, 스킬 3종으로 조작을 극단적으로 단순화하여 인지 과부하 방지</li>
                         <li><strong>빠른 성장 루프:</strong> 파밍-강화 체감을 5분 단위 세션으로 압축하여 높은 몰입감 유지</li>
                         <li><strong>탄막 패턴 밸런싱:</strong> 각 보스별 고유 공격 궤적과 인지 시간을 고려한 탄막 생성 로직 설계</li>
                     </ul>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 pl-6">
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 탄막 파훼 &amp; 보스전 화면<br><span class="text-[10px] text-slate-600">(images/wings1.png)</span></span>
+                        </div>
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 성장 및 스킬 조합 UI<br><span class="text-[10px] text-slate-600">(images/wings2.png)</span></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">👤 담당 역할 및 기여도 (My Role)</h4>
-                    <p class="leading-relaxed text-slate-300">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (전담 기획 및 개발)</strong>: 게임 조작감 최적화, 탄막 알고리즘 구현, 파밍 데이터 수치 테이블 설계 및 유니티 빌드 완료.
                     </p>
                 </div>
             </div>
 
-            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
-            <div class="pt-4 border-t border-amber-900/30 flex justify-between items-center">
+            <div class="pt-6 border-t border-amber-900/30 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-amber-400 hover:underline flex items-center gap-1 font-semibold">
                     📄 전투 &amp; 밸런스 기획서 보기 →
                 </a>
-                <button onclick="closeModal('modal-wings')" class="px-4 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
+                <button onclick="closeModal('modal-wings')" class="px-5 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
             </div>
         </div>
     </div>
 
     <!-- Modal 3: Rex -->
-    <div id="modal-rex" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-[#11121a] fantasy-border max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 space-y-6 relative shadow-2xl">
-            <button onclick="closeModal('modal-rex')" class="absolute top-4 right-4 text-amber-400/80 hover:text-amber-200 text-xl font-bold px-2 py-1">✕</button>
+    <div id="modal-rex" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-[#101118] border border-amber-800/40 w-full max-w-3xl max-h-[92vh] overflow-y-auto custom-scrollbar p-5 sm:p-8 space-y-8 relative shadow-2xl">
+            <button onclick="closeModal('modal-rex')" class="absolute top-4 right-4 text-slate-400 hover:text-amber-300 text-2xl font-bold z-10">✕</button>
             
             <div>
                 <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-fantasy">Project Details</span>
-                <h2 class="text-2xl font-bold text-slate-100 mt-1">Rex : 달빛 없는 늑대</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">Rex : 달빛 없는 늑대</h2>
             </div>
 
-            <!-- Screenshot Gallery Placeholder -->
             <div class="space-y-2">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-fantasy">Screenshots &amp; Visuals</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 비주얼 노벨 대사 &amp; 일러스트<br><span class="text-[10px] text-slate-600">(images/rex1.png 권장)</span></span>
-                    </div>
-                    <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-amber-900/30 overflow-hidden">
-                        <span class="p-2 text-center">📷 턴제 전투 전장 화면<br><span class="text-[10px] text-slate-600">(images/rex2.png 권장)</span></span>
-                    </div>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-fantasy">Main Concept Visual</span>
+                <div class="w-full aspect-video bg-[#181a24] flex items-center justify-center text-slate-500 text-xs border border-amber-900/30">
+                    <span>📷 Rex 대표 타이틀 장면 (images/rex_main.png)</span>
                 </div>
             </div>
 
-            <!-- Detailed Game Design Sections -->
-            <div class="space-y-4 text-xs sm:text-sm text-slate-300 border-t border-amber-900/30 pt-4">
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">🎯 핵심 기획 의도 (Design Intent)</h4>
-                    <p class="leading-relaxed text-slate-300">
+            <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         단순 텍스트 전달 위주의 비주얼 노벨에 깊이 있는 턴제 전략 전투를 융합한 시도입니다. 몰입감 높은 비극적 서사와 유저의 전략적 선택이 이야기의 결말과 직접 연결되는 경험을 선사하는 것이 목표였습니다.
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">⚙️ 주요 시스템 &amp; 메카닉 (Core Mechanics)</h4>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                    </h4>
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>서사-전투 상호작용:</strong> 스토리를 진행하며 맺은 인연 및 기로에 따른 선택이 전투 유닛 스탯과 특수 스킬에 직접 영향</li>
                         <li><strong>독창적 턴제 전투 규칙:</strong> 캐릭터별 행동력(AP) 관리 및 거리 기반 턴 시스템 개편</li>
                         <li><strong>세계관 구축:</strong> 왕이었던 주인공 &lt;렉스&gt;의 비극적 서사를 위한 세계관 설정집 및 스크립트 작성</li>
                     </ul>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 pl-6">
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 비주얼 노벨 대사 &amp; 일러스트<br><span class="text-[10px] text-slate-600">(images/rex1.png)</span></span>
+                        </div>
+                        <div class="bg-[#181a24] aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-800">
+                            <span class="p-2 text-center">📷 턴제 전투 전장 화면<br><span class="text-[10px] text-slate-600">(images/rex2.png)</span></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="font-bold text-amber-400 mb-1">👤 담당 역할 및 기여도 (My Role)</h4>
-                    <p class="leading-relaxed text-slate-300">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-amber-400 text-base flex items-center gap-2">
+                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                    </h4>
+                    <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (내러티브 기획 &amp; 턴제 전투 기획/개발)</strong>: 세계관 및 전체 메인 시나리오 작성, 렌파이(Ren'Py) 및 파이썬(Python) 기반 턴제 전장 로직 커스텀 개발.
                     </p>
                 </div>
             </div>
 
-            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
-            <div class="pt-4 border-t border-amber-900/30 flex justify-between items-center">
+            <div class="pt-6 border-t border-amber-900/30 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-amber-400 hover:underline flex items-center gap-1 font-semibold">
                     📄 시나리오 &amp; 세계관 설정집 보기 →
                 </a>
-                <button onclick="closeModal('modal-rex')" class="px-4 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
+                <button onclick="closeModal('modal-rex')" class="px-5 py-2 bg-[#1b1e2b] hover:bg-[#282d40] text-amber-200 text-xs font-bold transition-colors border border-amber-800/40">닫기</button>
             </div>
         </div>
     </div>
 
     <!-- JavaScript Controls -->
     <script>
-        // Fantasy Gate Entrance Control
         function enterWorld() {
             const gate = document.getElementById('fantasy-gate');
             const mainContent = document.getElementById('main-content');
@@ -536,7 +562,6 @@
             }, 800);
         }
 
-        // Modal Controls
         function openModal(modalId) {
             document.getElementById(modalId).classList.remove('hidden');
             document.body.style.overflow = 'hidden';
