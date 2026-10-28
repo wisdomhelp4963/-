@@ -69,6 +69,18 @@
                     <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">HTML/CSS</span>
                 </div>
             </div>
+
+            <!-- [추가] 기획 세부 영역 어필 카드 -->
+            <div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-blue-400">시스템 &amp; 밸런스 기획</h3>
+                    <p class="text-xs text-slate-300">스킬/전투 메카닉, UI/HUD 가시성 기획, 수치 데이터베이스(DB) 테이블 구조화</p>
+                </div>
+                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-purple-400">콘텐츠 &amp; 레벨 디자인</h3>
+                    <p class="text-xs text-slate-300">설화 기믹 레벨링, 보스 AI 패턴 페이즈 설계, 비주얼 노벨 내러티브 결합</p>
+                </div>
+            </div>
         </section>
 
         <!-- Projects Section -->
@@ -83,6 +95,11 @@
                 <div onclick="openModal('modal-slime')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
                     <div class="flex justify-between items-start">
                         <div>
+                            <!-- [추가] 직군 분류 태그 -->
+                            <div class="flex gap-2 mb-1.5">
+                                <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">시스템 기획</span>
+                                <span class="text-[10px] font-semibold text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800/60">레벨 디자인</span>
+                            </div>
                             <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
                                 The Slime : KOREA chapter
                                 <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
@@ -105,6 +122,11 @@
 
                 <!-- Project 2 Card -->
                 <div onclick="openModal('modal-wings')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
+                    <!-- [추가] 직군 분류 태그 -->
+                    <div class="flex gap-2 mb-1.5">
+                        <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">전투/스킬 밸런스</span>
+                        <span class="text-[10px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">조작감 설계</span>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
                         Wings Online
                         <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
@@ -122,6 +144,11 @@
 
                 <!-- Project 3 Card -->
                 <div onclick="openModal('modal-rex')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
+                    <!-- [추가] 직군 분류 태그 -->
+                    <div class="flex gap-2 mb-1.5">
+                        <span class="text-[10px] font-semibold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded border border-indigo-800/60">내러티브 기획</span>
+                        <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">턴제 전투 시스템</span>
+                    </div>
                     <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
                         Rex : 달빛 없는 늑대
                         <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
@@ -244,7 +271,6 @@
             <div class="space-y-2">
                 <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Screenshots &amp; Visuals</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <!-- 실제 이미지 파일 경로로 src를 수정하세요 (예: images/slime1.png) -->
                     <img src="더슬라임메인메뉴.png" alt="The Slime 메인메뉴" class="rounded-lg w-full aspect-video object-cover border border-slate-700/50">
                     <div class="bg-slate-800 rounded-lg aspect-video flex items-center justify-center text-slate-500 text-xs border border-slate-700/50 overflow-hidden">
                         <span class="p-2 text-center">📷 메인 인게임 플레이 화면<br><span class="text-[10px] text-slate-600">(images/slime1.png 권장)</span></span>
@@ -281,7 +307,11 @@
                 </div>
             </div>
 
-            <div class="pt-2 flex justify-end">
+            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
+                <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
+                    📄 시스템 &amp; 레벨 기획서 (PDF/Notion) 열기 →
+                </a>
                 <button onclick="closeModal('modal-slime')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium rounded-lg transition-colors">닫기</button>
             </div>
         </div>
@@ -336,7 +366,11 @@
                 </div>
             </div>
 
-            <div class="pt-2 flex justify-end">
+            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
+                <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
+                    📄 전투 &amp; 밸런스 기획서 보기 →
+                </a>
                 <button onclick="closeModal('modal-wings')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium rounded-lg transition-colors">닫기</button>
             </div>
         </div>
@@ -391,7 +425,11 @@
                 </div>
             </div>
 
-            <div class="pt-2 flex justify-end">
+            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
+                <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
+                    📄 시나리오 &amp; 세계관 설정집 보기 →
+                </a>
                 <button onclick="closeModal('modal-rex')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium rounded-lg transition-colors">닫기</button>
             </div>
         </div>
