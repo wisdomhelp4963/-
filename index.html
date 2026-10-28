@@ -131,45 +131,45 @@
 
         <!-- 3. JARVIS Live Corner Diagnostic HUD Logs -->
         <div class="absolute top-6 left-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/60 hidden sm:block pointer-events-none space-y-1">
-            <p class="text-sky-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span> J.A.R.V.I.S_PROTOCOL_v4.09</p>
-            <p>CORE_TEMP: 32°C // CPU_LOAD: 14%</p>
-            <p>MEM_ALLOC: 0x88FF01A2 [STABLE]</p>
+            <p class="text-sky-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span> 시스템 상태: 정상 작동 중</p>
+            <p>보안 상태: 안전 (보안 인증 완료)</p>
+            <p>데이터 로딩: 100% 준비 완료</p>
         </div>
         <div class="absolute top-6 right-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/60 hidden sm:block pointer-events-none text-right space-y-1">
-            <p>LATENCY: 12ms // LOC: KOREA_HUB</p>
-            <p class="text-emerald-400">ENCRYPTION: RSA-4096 [PASSED]</p>
-            <p>TARGET_USER: CHEOL WOO PARK</p>
+            <p>접속 서버: 한국 메인 서버</p>
+            <p class="text-emerald-400">프로필 인증: 박철우 (게임 기획자)</p>
+            <p>응답 속도: 12ms (쾌적)</p>
         </div>
         <div class="absolute bottom-6 left-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/40 hidden sm:block pointer-events-none">
-            <p>X: 127.0286° // Y: 37.4979°</p>
+            <p>시스템 인터페이스 v4.09</p>
         </div>
         <div class="absolute bottom-6 right-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/40 hidden sm:block pointer-events-none text-right">
-            <p>STATUS: AWAITING_AUTHORIZATION</p>
+            <p>클릭하여 포트폴리오 보기</p>
         </div>
 
         <!-- 4. Center Content Box -->
         <div class="relative z-10 text-center max-w-lg space-y-6">
             <!-- System Status Indicator -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-sky-950/80 border border-sky-400/50 text-[11px] font-tech text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-sky-950/80 border border-sky-400/50 text-[11px] font-bold text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
                 <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
-                <span>SYSTEM OVERLAY // ONLINE</span>
+                <span>[ 시스템 접속 완료 ]</span>
             </div>
 
             <div class="space-y-2">
                 <h1 class="text-3xl sm:text-5xl font-black tracking-wider text-slate-100 font-tech drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                    PARK CHEOL WOO
+                    박철우
                 </h1>
-                <p class="text-sky-300/80 text-xs sm:text-sm font-medium tracking-widest font-mono-tech">
-                    [ GAME PLANNER SYSTEM INTERFACE ]
+                <p class="text-sky-300/80 text-xs sm:text-sm font-medium tracking-widest">
+                    게임 기획자 포트폴리오 시스템
                 </p>
             </div>
 
             <!-- Enter Button (CLICKABLE BTN) -->
             <div class="pt-4">
                 <button onclick="enterWorld()" class="interactive-element group relative inline-flex items-center justify-center px-10 py-4 font-bold text-sky-100 bg-sky-950/90 border-2 border-sky-400/80 hover:border-sky-300 transition-all duration-300 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
-                    <span class="flex items-center gap-3 text-sm sm:text-base font-tech tracking-wider">
+                    <span class="flex items-center gap-3 text-sm sm:text-base font-bold tracking-wider">
                         <span class="text-sky-400 animate-pulse">►</span>
-                        <span>INITIALIZE INTERFACE</span>
+                        <span>포트폴리오 입장하기</span>
                     </span>
                 </button>
             </div>
@@ -189,18 +189,18 @@
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <span class="font-bold text-sm text-slate-100 font-tech">PARK CHEOL WOO</span>
-                            <span class="text-[10px] px-1.5 py-0.2 bg-sky-900/40 border border-sky-500/40 text-sky-300 font-mono">PLANNER</span>
+                            <span class="font-bold text-sm text-slate-100">박철우</span>
+                            <span class="text-[10px] px-1.5 py-0.2 bg-sky-900/40 border border-sky-500/40 text-sky-300 font-mono">기획자</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Nav Menu (CLICKABLE NAV) -->
-                <nav class="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-400 font-tech">
-                    <a href="#about" class="hover:text-sky-400 transition-colors">INFO</a>
-                    <a href="#projects" class="hover:text-sky-400 transition-colors">PROJECTS</a>
-                    <a href="#experience" class="hover:text-sky-400 transition-colors">LOGS</a>
-                    <a href="#education" class="hover:text-sky-400 transition-colors">STATUS</a>
+                <nav class="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium text-slate-300">
+                    <a href="#about" class="hover:text-sky-400 transition-colors">내 정보</a>
+                    <a href="#projects" class="hover:text-sky-400 transition-colors">프로젝트</a>
+                    <a href="#experience" class="hover:text-sky-400 transition-colors">활동 이력</a>
+                    <a href="#education" class="hover:text-sky-400 transition-colors">학력 및 수상</a>
                 </nav>
             </div>
         </header>
@@ -213,9 +213,9 @@
                     <div class="flex justify-between items-center border-b border-sky-500/20 pb-3">
                         <div class="flex items-center gap-2">
                             <span class="text-sky-400 text-sm">🔷</span>
-                            <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 font-tech">USER STATUS WINDOW</h2>
+                            <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 font-tech">기획자 프로필</h2>
                         </div>
-                        <span class="text-[11px] font-mono text-sky-400/80">CLASS: GAME SYSTEM PLANNER</span>
+                        <span class="text-[11px] font-mono text-sky-400/80">직무: 게임 시스템 기획자</span>
                     </div>
 
                     <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight text-slate-100">
@@ -236,16 +236,16 @@
                         </a>
                         <a href="https://github.com/wisdomhelp4963" target="_blank" rel="noopener noreferrer" class="interactive-element inline-flex items-center gap-2 px-4 py-2 text-xs font-medium bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-700">
                             <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            GitHub
+                            깃허브(GitHub)
                         </a>
                     </div>
 
                     <!-- Skills -->
                     <div class="pt-2">
-                        <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-3 font-tech">SKILLS &amp; TOOLS</h2>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-3 font-tech">사용 가능 기술 &amp; 툴</h2>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 text-xs font-medium bg-sky-950/60 border border-sky-500/40 text-sky-300">Game Planning</span>
-                            <span class="px-2.5 py-1 text-xs font-medium bg-sky-950/60 border border-sky-500/40 text-sky-300">System Design</span>
+                            <span class="px-2.5 py-1 text-xs font-medium bg-sky-950/60 border border-sky-500/40 text-sky-300">게임 기획</span>
+                            <span class="px-2.5 py-1 text-xs font-medium bg-sky-950/60 border border-sky-500/40 text-sky-300">시스템 설계</span>
                             <span class="px-2.5 py-1 text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300">Unity</span>
                             <span class="px-2.5 py-1 text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300">C#</span>
                             <span class="px-2.5 py-1 text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300">Roblox</span>
@@ -277,7 +277,7 @@
             <section id="projects" class="space-y-6">
                 <div class="flex items-center gap-2 border-b border-sky-500/20 pb-3">
                     <span class="text-sky-400">❖</span>
-                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">PROJECT MODULES</h2>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">개발 프로젝트</h2>
                 </div>
 
                 <div class="grid gap-6">
@@ -357,7 +357,7 @@
             <section id="experience" class="space-y-6">
                 <div class="flex items-center gap-2 border-b border-sky-500/20 pb-3">
                     <span class="text-sky-400">❖</span>
-                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">EXPERIENCE LOGS</h2>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">주요 활동 및 경력</h2>
                 </div>
 
                 <div class="system-panel p-6 space-y-6">
@@ -367,7 +367,7 @@
                             <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-sky-400 border-2 border-[#04060a]"></div>
                             <div class="flex flex-wrap justify-between items-baseline">
                                 <h3 class="text-base font-bold text-slate-100">지스타(G-STAR) 학생위원회 부위원장</h3>
-                                <span class="text-xs text-sky-400/80 font-mono">2026.05 - Present</span>
+                                <span class="text-xs text-sky-400/80 font-mono">2026.05 - 현재</span>
                             </div>
                             <p class="text-xs font-semibold text-sky-300">지스타(G-STAR) 출품위원회</p>
                             <ul class="text-xs sm:text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
@@ -381,7 +381,7 @@
                             <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 border-2 border-[#04060a]"></div>
                             <div class="flex flex-wrap justify-between items-baseline">
                                 <h3 class="text-base font-bold text-slate-100">제 4대 부학회장 (부학생회장)</h3>
-                                <span class="text-xs text-slate-500 font-mono">2026.02 - Present</span>
+                                <span class="text-xs text-slate-500 font-mono">2026.02 - 현재</span>
                             </div>
                             <p class="text-xs font-semibold text-sky-300">순천향대학교 메타버스게임학과</p>
                             <ul class="text-xs sm:text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
@@ -411,7 +411,7 @@
             <section id="education" class="space-y-6">
                 <div class="flex items-center gap-2 border-b border-sky-500/20 pb-3">
                     <span class="text-sky-400">❖</span>
-                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">ACADEMIC STATUS</h2>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-100 font-tech">학력 및 동아리 활동</h2>
                 </div>
 
                 <div class="system-panel p-6 space-y-4">
@@ -421,7 +421,7 @@
                     </div>
                     <p class="text-xs sm:text-sm font-medium text-sky-300/80">메타버스게임학과 / AI게임공학과 재학</p>
                     <div class="border-t border-sky-500/20 pt-3">
-                        <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-2 font-tech">Activities &amp; Awards</h4>
+                        <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-2 font-tech">수상 경력 및 동아리</h4>
                         <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5">
                             <li class="flex items-center gap-2">
                                 <span class="text-sky-400">•</span> 2026년 순천향대학교 하계 게임발표회 3위 입상 ([The Slime : KOREA chapter])
@@ -441,7 +441,7 @@
 
         <!-- Footer -->
         <footer class="border-t border-sky-500/20 py-8 text-center text-xs text-slate-500 font-tech">
-            <p>© 2026 PARK CHEOL WOO. SYSTEM OVERLAY OVERVIEW.</p>
+            <p>© 2026 PARK CHEOL WOO. ALL RIGHTS RESERVED.</p>
         </footer>
 
     </div>
@@ -454,13 +454,13 @@
             <button onclick="closeModal('modal-slime')" class="interactive-element absolute top-4 right-4 text-sky-400 hover:text-white text-2xl font-bold z-10 px-2 py-1">✕</button>
             
             <div>
-                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">PROJECT OVERVIEW</span>
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">프로젝트 상세 보기</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">The Slime : KOREA chapter</h2>
                 <p class="text-xs text-emerald-400 mt-1">🏆 2026 순천향대학교 하계 게임발표회 3위 입상작</p>
             </div>
 
             <div class="space-y-2">
-                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">Main Concept Visual</span>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">메인 타이틀 이미지</span>
                 <div class="w-full aspect-video bg-slate-900 overflow-hidden border border-sky-500/30">
                     <img src="더슬라임메인메뉴.png" alt="The Slime 메인메뉴" class="w-full h-full object-cover">
                 </div>
@@ -469,7 +469,7 @@
             <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                        <span>🎯</span> 핵심 기획 의도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         기존 서구권 중심의 아포칼립스/로그라이크 세계관에서 벗어나, 한국 설화와 신화를 기계 오염이라는 현대적 스팀펑크 메카닉으로 재해석하고자 했습니다. 피지컬 조작감과 함께 정화 메카닉을 통한 전략적 선택지를 부여하는 것에 집중했습니다.
@@ -478,7 +478,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉
                     </h4>
                     <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>정화 및 흡수 시스템:</strong> 오염된 보스 기체를 정화할 때마다 고유 신화 능력을 흡수하여 조합하는 빌드트리 설계</li>
@@ -498,7 +498,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                        <span>👤</span> 담당 역할 및 기여도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (기획 100%, 아트/프로그래밍 100%)</strong>: 전반적인 세계관 시나리오 작성, 전투 시스템 수치 밸런싱 설계, 유니티 C# 스크립팅 및 2.5D 픽셀 아트 리소스 구현.
@@ -521,12 +521,12 @@
             <button onclick="closeModal('modal-wings')" class="interactive-element absolute top-4 right-4 text-sky-400 hover:text-white text-2xl font-bold z-10 px-2 py-1">✕</button>
             
             <div>
-                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">PROJECT OVERVIEW</span>
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">프로젝트 상세 보기</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">Wings Online</h2>
             </div>
 
             <div class="space-y-2">
-                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">Main Concept Visual</span>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">메인 컨셉 이미지</span>
                 <div class="w-full aspect-video bg-slate-900 flex items-center justify-center text-slate-500 text-xs border border-sky-500/30">
                     <span>📷 Wings Online 대표 메인 화면 (images/wings_main.png)</span>
                 </div>
@@ -535,7 +535,7 @@
             <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                        <span>🎯</span> 핵심 기획 의도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         바쁜 일상 중 복잡한 매커니즘 없이 즉각적인 재미를 줄 수 있는 '킬링타임 액션 로그라이크'를 지향했습니다. 진입 장벽은 낮추되, 보스전 탄막 패턴 파훼를 통해 소소하지만 명확한 클리어 쾌감을 전달하고자 했습니다.
@@ -544,7 +544,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉
                     </h4>
                     <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>직관적 조작 체계:</strong> 상하좌우 4방향 이동, 평타, 스킬 3종으로 조작을 극단적으로 단순화하여 인지 과부하 방지</li>
@@ -564,7 +564,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                        <span>👤</span> 담당 역할 및 기여도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (전담 기획 및 개발)</strong>: 게임 조작감 최적화, 탄막 알고리즘 구현, 파밍 데이터 수치 테이블 설계 및 유니티 빌드 완료.
@@ -587,12 +587,12 @@
             <button onclick="closeModal('modal-rex')" class="interactive-element absolute top-4 right-4 text-sky-400 hover:text-white text-2xl font-bold z-10 px-2 py-1">✕</button>
             
             <div>
-                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">PROJECT OVERVIEW</span>
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-tech">프로젝트 상세 보기</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 mt-1">Rex : 달빛 없는 늑대</h2>
             </div>
 
             <div class="space-y-2">
-                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">Main Concept Visual</span>
+                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider font-tech">메인 컨셉 이미지</span>
                 <div class="w-full aspect-video bg-slate-900 flex items-center justify-center text-slate-500 text-xs border border-sky-500/30">
                     <span>📷 Rex 대표 타이틀 장면 (images/rex_main.png)</span>
                 </div>
@@ -601,7 +601,7 @@
             <div class="space-y-8 text-xs sm:text-sm text-slate-300 pt-2">
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>🎯</span> 핵심 기획 의도 (Design Intent)
+                        <span>🎯</span> 핵심 기획 의도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         단순 텍스트 전달 위주의 비주얼 노벨에 깊이 있는 턴제 전략 전투를 융합한 시도입니다. 몰입감 높은 비극적 서사와 유저의 전략적 선택이 이야기의 결말과 직접 연결되는 경험을 선사하는 것이 목표였습니다.
@@ -610,7 +610,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>⚙️</span> 주요 시스템 &amp; 메카닉 (Core Mechanics)
+                        <span>⚙️</span> 주요 시스템 &amp; 메카닉
                     </h4>
                     <ul class="list-disc list-inside space-y-1.5 text-slate-300 pl-6">
                         <li><strong>서사-전투 상호작용:</strong> 스토리를 진행하며 맺은 인연 및 기로에 따른 선택이 전투 유닛 스탯과 특수 스킬에 직접 영향</li>
@@ -630,7 +630,7 @@
 
                 <div class="space-y-3">
                     <h4 class="font-bold text-sky-400 text-base flex items-center gap-2">
-                        <span>👤</span> 담당 역할 및 기여도 (My Role)
+                        <span>👤</span> 담당 역할 및 기여도
                     </h4>
                     <p class="leading-relaxed text-slate-300 pl-6">
                         <strong>1인 개발 (내러티브 기획 &amp; 턴제 전투 기획/개발)</strong>: 세계관 및 전체 메인 시나리오 작성, 렌파이(Ren'Py) 및 파이썬(Python) 기반 턴제 전장 로직 커스텀 개발.
