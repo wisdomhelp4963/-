@@ -10,249 +10,294 @@
         body {
             font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
         }
+
+        /* Fantasy Gate Intro Screen Animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .rune-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-blue-600 selection:text-white">
 
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/60">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-bold text-xl tracking-tight hover:text-blue-400 transition-colors">박철우</a>
-            <nav class="flex gap-6 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-slate-100 transition-colors">소개</a>
-                <a href="#projects" class="hover:text-slate-100 transition-colors">프로젝트</a>
-                <a href="#experience" class="hover:text-slate-100 transition-colors">경력 및 활동</a>
-                <a href="#education" class="hover:text-slate-100 transition-colors">학력 및 성과</a>
-            </nav>
+    <!-- ==================== FANTASY GAME INTRO GATE ==================== -->
+    <div id="fantasy-gate" class="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-center p-6 transition-all duration-1000">
+        <!-- Magic Portal Background Glow -->
+        <div class="absolute w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] bg-gradient-to-tr from-blue-900/40 via-indigo-900/30 to-purple-900/20 rounded-full blur-3xl rune-glow pointer-events-none"></div>
+
+        <div class="relative z-10 text-center max-w-lg space-y-8">
+            <div class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-blue-400 uppercase bg-blue-950/80 border border-blue-800/80 rounded-full shadow-lg shadow-blue-950/50">
+                ✨ LEVEL 99 GAME PLANNER PORTAL
+            </div>
+
+            <div class="space-y-3">
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-slate-100 via-slate-200 to-slate-400 drop-shadow-md">
+                    박철우의 서사시
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base font-medium">
+                    시스템 설계와 낭만이 공존하는 게임 기획의 세계
+                </p>
+            </div>
+
+            <!-- Start Game / Enter Gate Button -->
+            <div class="pt-4">
+                <button onclick="enterWorld()" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-slate-100 bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-800 rounded-xl shadow-xl shadow-blue-950/80 hover:shadow-blue-600/30 hover:scale-105 active:scale-95 border border-blue-400/40 transition-all duration-300">
+                    <span class="flex items-center gap-3 text-base sm:text-lg tracking-wide">
+                        <span>⚔️</span>
+                        <span>세계에 입장하시겠습니까?</span>
+                    </span>
+                    <span class="absolute -bottom-6 text-[11px] text-slate-500 font-normal opacity-80 group-hover:opacity-100 transition-opacity">
+                        [ Click to Start Journey ]
+                    </span>
+                </button>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <main class="max-w-4xl mx-auto px-6 py-12 space-y-24">
+    <!-- ==================== MAIN PORTFOLIO CONTENT ==================== -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
 
-        <!-- Hero Section -->
-        <section id="about" class="space-y-6 pt-6">
-            <div class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/50 border border-blue-800/50 rounded-full">
-                Game Planner Portfolio
+        <!-- Header Navigation -->
+        <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/60">
+            <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="#" class="font-bold text-xl tracking-tight hover:text-blue-400 transition-colors">박철우</a>
+                <nav class="flex gap-6 text-sm font-medium text-slate-400">
+                    <a href="#about" class="hover:text-slate-100 transition-colors">소개</a>
+                    <a href="#projects" class="hover:text-slate-100 transition-colors">프로젝트</a>
+                    <a href="#experience" class="hover:text-slate-100 transition-colors">경력 및 활동</a>
+                    <a href="#education" class="hover:text-slate-100 transition-colors">학력 및 성과</a>
+                </nav>
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                내가 하고싶은 게임을 만드는 <br class="hidden sm:inline" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">게임 기획자 박철우</span>입니다.
-            </h1>
-            <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl">
-                넘침과 모자람 사이 적당함의 균형을 찾으며, 체계적인 시스템 설계와 낭만 있는 게임 플레이 경험을 만듭니다. 
-                유니티(Unity)와 로블록스(Roblox), 웹(Web) 등 다양한 환경에서 1인 게임 개발 프로젝트를 기획 및 진행하고 있습니다.
-            </p>
-            
-            <!-- Contact & Social -->
-            <div class="flex flex-wrap gap-4 pt-2">
-                <a href="mailto:Wisdomhelp4963@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    Wisdomhelp4963@gmail.com
-                </a>
-                <a href="https://github.com/wisdomhelp4963" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg transition-colors">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    GitHub
-                </a>
-            </div>
+        </header>
 
-            <!-- Skills -->
-            <div class="pt-6">
-                <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Skills &amp; Tools</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-blue-300">Game Planning</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-blue-300">System Design</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Unity</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">C#</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Roblox</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Lua</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Ren'Py</span>
-                    <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">HTML/CSS</span>
+        <main class="max-w-4xl mx-auto px-6 py-12 space-y-24">
+
+            <!-- Hero Section -->
+            <section id="about" class="space-y-6 pt-6">
+                <div class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-950/50 border border-blue-800/50 rounded-full">
+                    Game Planner Portfolio
                 </div>
-            </div>
-
-            <!-- [추가] 기획 세부 영역 어필 카드 -->
-            <div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-blue-400">시스템 &amp; 밸런스 기획</h3>
-                    <p class="text-xs text-slate-300">스킬/전투 메카닉, UI/HUD 가시성 기획, 수치 데이터베이스(DB) 테이블 구조화</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                    내가 하고싶은 게임을 만드는 <br class="hidden sm:inline" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">게임 기획자 박철우</span>입니다.
+                </h1>
+                <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl">
+                    넘침과 모자람 사이 적당함의 균형을 찾으며, 체계적인 시스템 설계와 낭만 있는 게임 플레이 경험을 만듭니다. 
+                    유니티(Unity)와 로블록스(Roblox), 웹(Web) 등 다양한 환경에서 1인 게임 개발 프로젝트를 기획 및 진행하고 있습니다.
+                </p>
+                
+                <!-- Contact & Social -->
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="mailto:Wisdomhelp4963@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Wisdomhelp4963@gmail.com
+                    </a>
+                    <a href="https://github.com/wisdomhelp4963" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg transition-colors">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        GitHub
+                    </a>
                 </div>
-                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-purple-400">콘텐츠 &amp; 레벨 디자인</h3>
-                    <p class="text-xs text-slate-300">설화 기믹 레벨링, 보스 AI 패턴 페이즈 설계, 비주얼 노벨 내러티브 결합</p>
+
+                <!-- Skills -->
+                <div class="pt-6">
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Skills &amp; Tools</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-blue-300">Game Planning</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-blue-300">System Design</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Unity</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">C#</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Roblox</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Lua</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">Ren'Py</span>
+                        <span class="px-3 py-1 text-xs font-medium bg-slate-900 border border-slate-800 rounded-md text-slate-300">HTML/CSS</span>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="space-y-8">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-2xl font-bold tracking-tight">Featured Projects</h2>
-                <p class="text-slate-400 text-sm mt-1">프로젝트 카드를 클릭하면 기획 상세 설명과 갤러리를 확인할 수 있습니다.</p>
-            </div>
+                <!-- 기획 세부 영역 어필 카드 -->
+                <div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-blue-400">시스템 &amp; 밸런스 기획</h3>
+                        <p class="text-xs text-slate-300">스킬/전투 메카닉, UI/HUD 가시성 기획, 수치 데이터베이스(DB) 테이블 구조화</p>
+                    </div>
+                    <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-lg space-y-1">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-purple-400">콘텐츠 &amp; 레벨 디자인</h3>
+                        <p class="text-xs text-slate-300">설화 기믹 레벨링, 보스 AI 패턴 페이즈 설계, 비주얼 노벨 내러티브 결합</p>
+                    </div>
+                </div>
+            </section>
 
-            <div class="grid gap-6">
-                <!-- Project 1 Card -->
-                <div onclick="openModal('modal-slime')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <!-- [추가] 직군 분류 태그 -->
-                            <div class="flex gap-2 mb-1.5">
-                                <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">시스템 기획</span>
-                                <span class="text-[10px] font-semibold text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800/60">레벨 디자인</span>
+            <!-- Projects Section -->
+            <section id="projects" class="space-y-8">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-2xl font-bold tracking-tight">Featured Projects</h2>
+                    <p class="text-slate-400 text-sm mt-1">프로젝트 카드를 클릭하면 기획 상세 설명과 갤러리를 확인할 수 있습니다.</p>
+                </div>
+
+                <div class="grid gap-6">
+                    <!-- Project 1 Card -->
+                    <div onclick="openModal('modal-slime')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="flex gap-2 mb-1.5">
+                                    <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">시스템 기획</span>
+                                    <span class="text-[10px] font-semibold text-purple-400 bg-purple-950/80 px-2 py-0.5 rounded border border-purple-800/60">레벨 디자인</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                                    The Slime : KOREA chapter
+                                    <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
+                                </h3>
+                                <span class="inline-block mt-2 text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2.5 py-0.5 rounded-full">
+                                    🏆 2026 순천향대 하계 게임발표회 3위 입상
+                                </span>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
-                                The Slime : KOREA chapter
-                                <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
-                            </h3>
-                            <span class="inline-block mt-2 text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2.5 py-0.5 rounded-full">
-                                🏆 2026 순천향대 하계 게임발표회 3위 입상
-                            </span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            유니티 기반의 2.5D 픽셀 로그라이크 게임입니다. 플레이어는 아포칼립스 세계에서 생존한 실험체 &lt;Slime 002&gt;가 되어 오염된 기계로 구현된 전 세계의 신화 속 존재들을 정화해야 합니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Unity</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">C#</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">2.5D Pixel</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Roguelike</span>
                         </div>
                     </div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        유니티 기반의 2.5D 픽셀 로그라이크 게임입니다. 플레이어는 아포칼립스 세계에서 생존한 실험체 &lt;Slime 002&gt;가 되어 오염된 기계로 구현된 전 세계의 신화 속 존재들을 정화해야 합니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Unity</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">C#</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">2.5D Pixel</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Roguelike</span>
+
+                    <!-- Project 2 Card -->
+                    <div onclick="openModal('modal-wings')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
+                        <div class="flex gap-2 mb-1.5">
+                            <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">전투/스킬 밸런스</span>
+                            <span class="text-[10px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">조작감 설계</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                            Wings Online
+                            <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            유니티 기반 2D 킬링타임 로그라이크 프로젝트입니다. 상하좌우 이동, 평타, 3개의 스킬로 단순화된 조작을 통해 파밍을 통한 빠른 성장과 보스별 탄막 패턴을 파훼하는 재미를 목표로 조작감과 시스템 밸런스를 설계했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Unity</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">C#</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">2D Action</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Roguelike</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 Card -->
+                    <div onclick="openModal('modal-rex')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
+                        <div class="flex gap-2 mb-1.5">
+                            <span class="text-[10px] font-semibold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded border border-indigo-800/60">내러티브 기획</span>
+                            <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">턴제 전투 시스템</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                            Rex : 달빛 없는 늑대
+                            <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            렌파이(Ren'Py) 엔진 기반의 비주얼 노벨 &amp; 턴제 전략 게임입니다. 비극적인 삶을 살아가는 왕이었던 자 &lt;렉스&gt;의 스토리를 중심으로, 독창적인 서사 기획과 턴제 전투 규칙 시스템을 결합하여 완성했습니다.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Ren'Py</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Python</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Turn-Based Strategy</span>
+                            <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Narrative Design</span>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Project 2 Card -->
-                <div onclick="openModal('modal-wings')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
-                    <!-- [추가] 직군 분류 태그 -->
-                    <div class="flex gap-2 mb-1.5">
-                        <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">전투/스킬 밸런스</span>
-                        <span class="text-[10px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">조작감 설계</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
-                        Wings Online
-                        <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
-                    </h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        유니티 기반 2D 킬링타임 로그라이크 프로젝트입니다. 상하좌우 이동, 평타, 3개의 스킬로 단순화된 조작을 통해 파밍을 통한 빠른 성장과 보스별 탄막 패턴을 파훼하는 재미를 목표로 조작감과 시스템 밸런스를 설계했습니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Unity</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">C#</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">2D Action</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Roguelike</span>
-                    </div>
+            <!-- Experience Section -->
+            <section id="experience" class="space-y-8">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-2xl font-bold tracking-tight">Experience &amp; Leadership</h2>
+                    <p class="text-slate-400 text-sm mt-1">학과 행사 총괄, 전시 기획 및 예산 집행 경험입니다.</p>
                 </div>
 
-                <!-- Project 3 Card -->
-                <div onclick="openModal('modal-rex')" class="cursor-pointer group p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-blue-500/80 hover:bg-slate-900/80 transition-all space-y-4">
-                    <!-- [추가] 직군 분류 태그 -->
-                    <div class="flex gap-2 mb-1.5">
-                        <span class="text-[10px] font-semibold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded border border-indigo-800/60">내러티브 기획</span>
-                        <span class="text-[10px] font-semibold text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-800/60">턴제 전투 시스템</span>
+                <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
+                    <!-- Exp 1 -->
+                    <div class="relative pl-10 space-y-1">
+                        <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-slate-950"></div>
+                        <div class="flex flex-wrap justify-between items-baseline">
+                            <h3 class="text-lg font-bold text-slate-100">지스타(G-STAR) 학생위원회 부위원장</h3>
+                            <span class="text-xs text-slate-500 font-mono">2026.05 - Present</span>
+                        </div>
+                        <p class="text-sm font-medium text-blue-400">지스타(G-STAR) 출품위원회</p>
+                        <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
+                            <li>순천향대학교 지스타(G-STAR) 전시 출품위원회 부위원장으로 부스 제작 및 운영 전담</li>
+                            <li>전시 부스 디자인, 예산 기획 및 집행, 참가 출품 팀 총괄 서포트 진행</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors flex items-center gap-2">
-                        Rex : 달빛 없는 늑대
-                        <span class="text-xs text-slate-500 font-normal">🔍 클릭하여 상세 보기</span>
-                    </h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        렌파이(Ren'Py) 엔진 기반의 비주얼 노벨 &amp; 턴제 전략 게임입니다. 비극적인 삶을 살아가는 왕이었던 자 &lt;렉스&gt;의 스토리를 중심으로, 독창적인 서사 기획과 턴제 전투 규칙 시스템을 결합하여 완성했습니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Ren'Py</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Python</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Turn-Based Strategy</span>
-                        <span class="text-xs px-2.5 py-1 bg-slate-800 text-slate-400 rounded">Narrative Design</span>
+
+                    <!-- Exp 2 -->
+                    <div class="relative pl-10 space-y-1">
+                        <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
+                        <div class="flex flex-wrap justify-between items-baseline">
+                            <h3 class="text-lg font-bold text-slate-100">제 4대 부학회장 (부학생회장)</h3>
+                            <span class="text-xs text-slate-500 font-mono">2026.02 - Present</span>
+                        </div>
+                        <p class="text-sm font-medium text-blue-400">순천향대학교 메타버스게임학과</p>
+                        <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
+                            <li>학과 대형 행사 '게임잼 챔피언십' 기획 및 운영 총괄 (백만 원 단위 예산 집행)</li>
+                            <li>학과 구성원 네트워크 활성화 및 내부 게임 개발 프로젝트 진흥 사업 주도</li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp 3 -->
+                    <div class="relative pl-10 space-y-1">
+                        <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
+                        <div class="flex flex-wrap justify-between items-baseline">
+                            <h3 class="text-lg font-bold text-slate-100">제 1대 학회장 (학생회장) &amp; 1학년 부과대표</h3>
+                            <span class="text-xs text-slate-500 font-mono">2022.12 - 2024.02</span>
+                        </div>
+                        <p class="text-sm font-medium text-blue-400">순천향대학교 메타버스게임학과</p>
+                        <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
+                            <li>학과 전통 연례 행사인 '메가전(Mega Tournament)' 총괄 기획 및 진행 (천만 원 단위 예산 집행)</li>
+                            <li>학기별 개강총회/종강총회 기획 및 운영, 초대 학생회 조직 기틀 마련</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="space-y-8">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-2xl font-bold tracking-tight">Experience &amp; Leadership</h2>
-                <p class="text-slate-400 text-sm mt-1">학과 행사 총괄, 전시 기획 및 예산 집행 경험입니다.</p>
-            </div>
+            <!-- Education Section -->
+            <section id="education" class="space-y-8">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-2xl font-bold tracking-tight">Education &amp; Activities</h2>
+                </div>
 
-            <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-800">
-                <!-- Exp 1 -->
-                <div class="relative pl-10 space-y-1">
-                    <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-slate-950"></div>
+                <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-xl space-y-4">
                     <div class="flex flex-wrap justify-between items-baseline">
-                        <h3 class="text-lg font-bold text-slate-100">지스타(G-STAR) 학생위원회 부위원장</h3>
-                        <span class="text-xs text-slate-500 font-mono">2026.05 - Present</span>
+                        <h3 class="text-lg font-bold text-slate-100">순천향대학교</h3>
+                        <span class="text-xs text-slate-500 font-mono">2023.03 - 2028.02 (졸업예정)</span>
                     </div>
-                    <p class="text-sm font-medium text-blue-400">지스타(G-STAR) 출품위원회</p>
-                    <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
-                        <li>순천향대학교 지스타(G-STAR) 전시 출품위원회 부위원장으로 부스 제작 및 운영 전담</li>
-                        <li>전시 부스 디자인, 예산 기획 및 집행, 참가 출품 팀 총괄 서포트 진행</li>
-                    </ul>
-                </div>
-
-                <!-- Exp 2 -->
-                <div class="relative pl-10 space-y-1">
-                    <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-                    <div class="flex flex-wrap justify-between items-baseline">
-                        <h3 class="text-lg font-bold text-slate-100">제 4대 부학회장 (부학생회장)</h3>
-                        <span class="text-xs text-slate-500 font-mono">2026.02 - Present</span>
+                    <p class="text-sm font-medium text-slate-300">메타버스게임학과 / AI게임공학과 재학</p>
+                    <div class="border-t border-slate-800/60 pt-3">
+                        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Activities &amp; Awards</h4>
+                        <ul class="text-sm text-slate-300 space-y-1.5">
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">•</span> 2026년 순천향대학교 하계 게임발표회 3위 입상 ([The Slime : KOREA chapter])
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">•</span> 순검회 (대학 검도 동아리): 타 대학 간 교류 대련 진행 및 개인 수련
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-blue-400">•</span> 피파 오프라인 (축구 동아리): 학과 및 타 대학 간 친선전 및 단체 훈련 진행
+                            </li>
+                        </ul>
                     </div>
-                    <p class="text-sm font-medium text-blue-400">순천향대학교 메타버스게임학과</p>
-                    <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
-                        <li>학과 대형 행사 '게임잼 챔피언십' 기획 및 운영 총괄 (백만 원 단위 예산 집행)</li>
-                        <li>학과 구성원 네트워크 활성화 및 내부 게임 개발 프로젝트 진흥 사업 주도</li>
-                    </ul>
                 </div>
+            </section>
 
-                <!-- Exp 3 -->
-                <div class="relative pl-10 space-y-1">
-                    <div class="absolute left-2 top-1.5 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
-                    <div class="flex flex-wrap justify-between items-baseline">
-                        <h3 class="text-lg font-bold text-slate-100">제 1대 학회장 (학생회장) &amp; 1학년 부과대표</h3>
-                        <span class="text-xs text-slate-500 font-mono">2022.12 - 2024.02</span>
-                    </div>
-                    <p class="text-sm font-medium text-blue-400">순천향대학교 메타버스게임학과</p>
-                    <ul class="text-sm text-slate-300 list-disc list-inside space-y-1 pt-1">
-                        <li>학과 전통 연례 행사인 '메가전(Mega Tournament)' 총괄 기획 및 진행 (천만 원 단위 예산 집행)</li>
-                        <li>학기별 개강총회/종강총회 기획 및 운영, 초대 학생회 조직 기틀 마련</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        </main>
 
-        <!-- Education Section -->
-        <section id="education" class="space-y-8">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-2xl font-bold tracking-tight">Education &amp; Activities</h2>
-            </div>
+        <!-- Footer -->
+        <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+            <p>© 2026 박철우. All rights reserved.</p>
+        </footer>
 
-            <div class="p-6 bg-slate-900/30 border border-slate-800 rounded-xl space-y-4">
-                <div class="flex flex-wrap justify-between items-baseline">
-                    <h3 class="text-lg font-bold text-slate-100">순천향대학교</h3>
-                    <span class="text-xs text-slate-500 font-mono">2023.03 - 2028.02 (졸업예정)</span>
-                </div>
-                <p class="text-sm font-medium text-slate-300">메타버스게임학과 / AI게임공학과 재학</p>
-                <div class="border-t border-slate-800/60 pt-3">
-                    <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Activities &amp; Awards</h4>
-                    <ul class="text-sm text-slate-300 space-y-1.5">
-                        <li class="flex items-center gap-2">
-                            <span class="text-blue-400">•</span> 2026년 순천향대학교 하계 게임발표회 3위 입상 ([The Slime : KOREA chapter])
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-blue-400">•</span> 순검회 (대학 검도 동아리): 타 대학 간 교류 대련 진행 및 개인 수련
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="text-blue-400">•</span> 피파 오프라인 (축구 동아리): 학과 및 타 대학 간 친선전 및 단체 훈련 진행
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
-        <p>© 2026 박철우. All rights reserved.</p>
-    </footer>
+    </div>
 
     <!-- ==================== MODALS (상세 레이어 팝업) ==================== -->
 
@@ -307,7 +352,7 @@
                 </div>
             </div>
 
-            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
             <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
                     📄 시스템 &amp; 레벨 기획서 (PDF/Notion) 열기 →
@@ -366,7 +411,7 @@
                 </div>
             </div>
 
-            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
             <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
                     📄 전투 &amp; 밸런스 기획서 보기 →
@@ -425,7 +470,7 @@
                 </div>
             </div>
 
-            <!-- [추가] 기획 문서 다운로드 / 노션 링크 공간 -->
+            <!-- 기획 문서 다운로드 / 노션 링크 공간 -->
             <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center">
                 <a href="#" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
                     📄 시나리오 &amp; 세계관 설정집 보기 →
@@ -435,19 +480,33 @@
         </div>
     </div>
 
-    <!-- JavaScript for Modal Control -->
+    <!-- JavaScript Controls -->
     <script>
+        // Fantasy Gate Entrance Control
+        function enterWorld() {
+            const gate = document.getElementById('fantasy-gate');
+            const mainContent = document.getElementById('main-content');
+            
+            gate.style.opacity = '0';
+            gate.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                gate.style.display = 'none';
+                mainContent.classList.remove('opacity-0');
+            }, 800);
+        }
+
+        // Modal Controls
         function openModal(modalId) {
             document.getElementById(modalId).classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // 스크롤 방지
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.add('hidden');
-            document.body.style.overflow = 'auto'; // 스크롤 재개
+            document.body.style.overflow = 'auto';
         }
 
-        // 모달 바깥 배경 클릭 시 닫기
         window.onclick = function(event) {
             const modals = ['modal-slime', 'modal-wings', 'modal-rex'];
             modals.forEach(id => {
