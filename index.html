@@ -7,16 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Share+Tech+Mono&display=swap');
 
         body {
             font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background-color: #06080e;
+            background-color: #04060a;
             color: #d1d5db;
         }
 
         .font-tech {
             font-family: 'Orbitron', sans-serif;
+        }
+        .font-mono-tech {
+            font-family: 'Share Tech Mono', monospace;
         }
 
         /* 웹툰 시스템 창 패널 */
@@ -49,7 +52,7 @@
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #06080e;
+            background: #04060a;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #1e293b;
@@ -65,36 +68,107 @@
                               linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
             background-size: 32px 32px;
         }
+
+        /* ==================== JARVIS HUD ANIMATIONS ==================== */
+        @keyframes rotateCW {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rotateCCW {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+        @keyframes scanLine {
+            0% { top: 0%; opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { top: 100%; opacity: 0; }
+        }
+        @keyframes hudPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.02); }
+        }
+
+        .hud-rotate-cw {
+            animation: rotateCW 20s linear infinite;
+        }
+        .hud-rotate-ccw {
+            animation: rotateCCW 12s linear infinite;
+        }
+        .hud-rotate-fast {
+            animation: rotateCW 6s linear infinite;
+        }
+        .scan-laser {
+            animation: scanLine 3s ease-in-out infinite;
+        }
+        .hud-pulse-glow {
+            animation: hudPulse 4s ease-in-out infinite;
+        }
     </style>
 </head>
-<body class="min-h-screen selection:bg-sky-500 selection:text-black bg-tech-grid custom-scrollbar">
+<body class="min-h-screen selection:bg-sky-500 selection:text-black bg-tech-grid custom-scrollbar overflow-x-hidden">
 
-    <!-- ==================== SYSTEM INTERFACE INTRO GATE ==================== -->
-    <div id="fantasy-gate" class="fixed inset-0 z-50 bg-[#04060a] flex flex-col items-center justify-center p-6 transition-all duration-700">
-        <!-- System Scanner Background Line -->
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/5 to-transparent pointer-events-none animate-pulse"></div>
+    <!-- ==================== JARVIS SF HUD CONNECTING GATE ==================== -->
+    <div id="fantasy-gate" class="fixed inset-0 z-50 bg-[#020306] flex flex-col items-center justify-center p-6 transition-all duration-700 overflow-hidden">
+        
+        <!-- 1. Background Grid & Scan Beam -->
+        <div class="absolute inset-0 bg-tech-grid opacity-40 pointer-events-none"></div>
+        <div class="scan-laser absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent shadow-[0_0_15px_#38bdf8] pointer-events-none"></div>
 
+        <!-- 2. JARVIS Multi-Layered Rotating HUD Rings -->
+        <div class="absolute w-[360px] h-[360px] sm:w-[580px] sm:h-[580px] pointer-events-none flex items-center justify-center">
+            <!-- Outer Segmented Ring -->
+            <div class="hud-rotate-cw absolute inset-0 border-2 border-dashed border-sky-500/20 rounded-full"></div>
+            <!-- Middle Tech Ring with Dash Markers -->
+            <div class="hud-rotate-ccw absolute w-[82%] h-[82%] border border-sky-400/30 rounded-full border-t-2 border-t-sky-400 border-b-2 border-b-sky-400"></div>
+            <!-- Fast Inner Target Ring -->
+            <div class="hud-rotate-fast absolute w-[60%] h-[60%] border border-dashed border-sky-300/40 rounded-full border-l-2 border-l-sky-300"></div>
+            <!-- Center Glowing Core Ambient -->
+            <div class="hud-pulse-glow absolute w-[40%] h-[40%] bg-sky-500/10 rounded-full blur-2xl"></div>
+            <!-- Center Crosshair Target Lines -->
+            <div class="absolute w-full h-[1px] bg-sky-500/20"></div>
+            <div class="absolute h-full w-[1px] bg-sky-500/20"></div>
+        </div>
+
+        <!-- 3. JARVIS Live Corner Diagnostic HUD Logs -->
+        <div class="absolute top-6 left-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/60 hidden sm:block pointer-events-none space-y-1">
+            <p class="text-sky-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span> J.A.R.V.I.S_PROTOCOL_v4.09</p>
+            <p>CORE_TEMP: 32°C // CPU_LOAD: 14%</p>
+            <p>MEM_ALLOC: 0x88FF01A2 [STABLE]</p>
+        </div>
+        <div class="absolute top-6 right-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/60 hidden sm:block pointer-events-none text-right space-y-1">
+            <p>LATENCY: 12ms // LOC: KOREA_HUB</p>
+            <p class="text-emerald-400">ENCRYPTION: RSA-4096 [PASSED]</p>
+            <p>TARGET_USER: CHEOL WOO PARK</p>
+        </div>
+        <div class="absolute bottom-6 left-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/40 hidden sm:block pointer-events-none">
+            <p>X: 127.0286° // Y: 37.4979°</p>
+        </div>
+        <div class="absolute bottom-6 right-6 font-mono-tech text-[10px] sm:text-xs text-sky-400/40 hidden sm:block pointer-events-none text-right">
+            <p>STATUS: AWAITING_AUTHORIZATION</p>
+        </div>
+
+        <!-- 4. Center Content Box -->
         <div class="relative z-10 text-center max-w-lg space-y-6">
             <!-- System Status Indicator -->
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/60 border border-sky-500/40 text-[11px] font-tech text-sky-400">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-sky-950/80 border border-sky-400/50 text-[11px] font-tech text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
                 <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
                 <span>SYSTEM OVERLAY // ONLINE</span>
             </div>
 
             <div class="space-y-2">
-                <h1 class="text-3xl sm:text-5xl font-black tracking-wider text-slate-100 font-tech">
+                <h1 class="text-3xl sm:text-5xl font-black tracking-wider text-slate-100 font-tech drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                     PARK CHEOL WOO
                 </h1>
-                <p class="text-sky-300/80 text-xs sm:text-sm font-medium tracking-widest">
-                    [ 게임 기획자 박철우의 시스템 인터페이스 ]
+                <p class="text-sky-300/80 text-xs sm:text-sm font-medium tracking-widest font-mono-tech">
+                    [ GAME PLANNER SYSTEM INTERFACE ]
                 </p>
             </div>
 
             <!-- Enter Button (CLICKABLE BTN) -->
             <div class="pt-4">
-                <button onclick="enterWorld()" class="interactive-element group relative inline-flex items-center justify-center px-10 py-4 font-bold text-sky-200 bg-sky-950/80 border border-sky-500/60 transition-all duration-300">
+                <button onclick="enterWorld()" class="interactive-element group relative inline-flex items-center justify-center px-10 py-4 font-bold text-sky-100 bg-sky-950/90 border-2 border-sky-400/80 hover:border-sky-300 transition-all duration-300 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
                     <span class="flex items-center gap-3 text-sm sm:text-base font-tech tracking-wider">
-                        <span class="text-sky-400">►</span>
+                        <span class="text-sky-400 animate-pulse">►</span>
                         <span>INITIALIZE INTERFACE</span>
                     </span>
                 </button>
@@ -106,7 +180,7 @@
     <div id="main-content" class="opacity-0 transition-opacity duration-700">
 
         <!-- System HUD Navigation Bar -->
-        <header class="sticky top-0 z-40 bg-[#06080e]/90 border-b border-sky-500/20 backdrop-blur-md">
+        <header class="sticky top-0 z-40 bg-[#04060a]/90 border-b border-sky-500/20 backdrop-blur-md">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
                 <!-- User Status Header -->
                 <div class="flex items-center gap-3">
@@ -290,7 +364,7 @@
                     <div class="space-y-6 relative before:absolute before:inset-0 before:left-3 before:w-0.5 before:bg-sky-500/20">
                         <!-- Exp 1 -->
                         <div class="relative pl-8 space-y-1">
-                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-sky-400 border-2 border-[#06080e]"></div>
+                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-sky-400 border-2 border-[#04060a]"></div>
                             <div class="flex flex-wrap justify-between items-baseline">
                                 <h3 class="text-base font-bold text-slate-100">지스타(G-STAR) 학생위원회 부위원장</h3>
                                 <span class="text-xs text-sky-400/80 font-mono">2026.05 - Present</span>
@@ -304,7 +378,7 @@
 
                         <!-- Exp 2 -->
                         <div class="relative pl-8 space-y-1">
-                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 border-2 border-[#06080e]"></div>
+                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 border-2 border-[#04060a]"></div>
                             <div class="flex flex-wrap justify-between items-baseline">
                                 <h3 class="text-base font-bold text-slate-100">제 4대 부학회장 (부학생회장)</h3>
                                 <span class="text-xs text-slate-500 font-mono">2026.02 - Present</span>
@@ -318,7 +392,7 @@
 
                         <!-- Exp 3 -->
                         <div class="relative pl-8 space-y-1">
-                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 border-2 border-[#06080e]"></div>
+                            <div class="absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 border-2 border-[#04060a]"></div>
                             <div class="flex flex-wrap justify-between items-baseline">
                                 <h3 class="text-base font-bold text-slate-100">제 1대 학회장 (학생회장) &amp; 1학년 부과대표</h3>
                                 <span class="text-xs text-slate-500 font-mono">2022.12 - 2024.02</span>
